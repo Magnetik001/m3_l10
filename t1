@@ -1,0 +1,20 @@
+import time
+
+number = input('Введите число от которого пойдет отсчет: ')
+
+def timer(num):
+    while num > 0:
+        print(num)
+        num -= 1
+        time.sleep(1)
+    else:
+        print('Таймер остановлен')
+
+def check(num):
+    if num.isdigit() == True:
+        if int(num) > 0:
+            timer(int(num))
+    else:
+        print('Неверно введено значение')
+
+check(number)
