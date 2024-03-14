@@ -1,0 +1,29 @@
+def manual():
+    print('Команды для управления:')
+    print('\t1 - Запись данных')
+    print('\t2 - Чтение документа')
+    print('\t3 - Чтение строки')
+    print('\t4 - Выход из программы')
+
+def start():
+    manual()
+    while True:
+        ans = int(input('Сделайте выбор: '))
+        if ans == 1:
+            with open('text.txt','a') as file:
+                text = input('Введите текст: ')
+                file.write(f'{text}\n')
+        elif ans == 2:
+            with open('text.txt','r') as file:
+                for line in file:
+                    print(line,end = '')
+        elif ans == 3:
+            with open('text.txt','r') as file:
+                row = int(input('Какую строку вы хотите вывести: '))
+                file_line = file.readlines()
+                print(file_line[row - 1],end = '')
+        elif ans == 4:
+            file.close()
+            break
+
+start()
