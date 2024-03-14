@@ -1,0 +1,46 @@
+import collections
+
+vowel_letters = ['а','е','ё','и','о','у','ы','э','ю','я']
+consonant_letters = ['б', 'в', 'г', 'д','ж', 'з','й', 'к', 'л', 'м', 'н','п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ь']
+number_letters = ['0','1','2','3','4','5','6','7','8','9']
+
+text = input('Введите строку: ')
+lst = collections.Counter(text)
+
+def check_vowel(lst):
+    vowels = 0
+    for i in lst:
+        if i in vowel_letters:
+            vowels += 1
+
+    return vowels
+
+def check_consonant(lst):
+    consonant = 0
+    for i in lst:
+        if i in consonant_letters:
+            consonant += 1
+
+    return consonant
+
+def check_numbers(lst):
+    numbers = 0
+    for i in lst:
+        if i in number_letters:
+            numbers += 1
+
+    return numbers
+
+def check_other(lst):
+    others = 0
+    for i in lst:
+        if (i not in vowel_letters) and (i not in consonant_letters) and (i not in number_letters):
+            others += 1
+
+    return others
+
+print(lst)
+print(f'Количество гласных {check_vowel(text)}')
+print(f'Количество согласных {check_consonant(text)}')
+print(f'Количество цифр {check_numbers(text)}')
+print(f'Количество других символов {check_other(text)}')
